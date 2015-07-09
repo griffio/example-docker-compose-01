@@ -16,7 +16,7 @@ Required docker configuration files:
 
 ---
 
-docker-compose.yml is the default filename
+docker-compose.yml is the default filename that is searched for if --file is not specified.
 
 ~~~
 docker-compose --file docker-compose-devl.yml build
