@@ -8,11 +8,13 @@ Launch two containers - for nginx, JVM; that can be configured for local and pro
 
 Required docker configuration files:
 
-/docker-compose-base.yml - Shared config that can be extended  
-/docker-compose-devl.yml - Localhost deploy
-/docker-compose-prod.yml - Cloud provider deploy
-/nginx/DockerFile
-/tomcat/DockerFile
+~~~
+/docker-compose-base.yml - Shared config that can be extended 
+/docker-compose-devl.yml - Localhost deploy 
+/docker-compose-prod.yml - Cloud provider deploy 
+/nginx/DockerFile 
+/tomcat/DockerFile 
+~~~
 
 ---
 
