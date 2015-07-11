@@ -1,0 +1,8 @@
+nginx:
+  build: nginx
+  restart: always
+
+application:
+  build: ./application/build/docker
+  restart: always
+  

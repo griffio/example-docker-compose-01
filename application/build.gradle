@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE')
+    }
+}
+
+plugins {
+    id 'java'
+    id "com.bmuschko.docker-remote-api" version "2.4.1"
+}
+
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'griffio-app'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    description = "javac: ignore processor hints, keep all other hints"
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.compilerArgs += ["-Xlint:all,-processing"]
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") 
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+task createDockerfile(type: Dockerfile) {
+    destFile = project.file("build/docker/Dockerfile")
+
+    from "azul/zulu-openjdk-centos:8"
+    maintainer "griffio@users.noreply.github.com"
+    runCommand "bash -c 'touch /main.jar'"
+    addFile "${jar.archivePath}", "main.jar"
+    entryPoint { ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/main.jar"]}
+    volume "/tmp"
+}

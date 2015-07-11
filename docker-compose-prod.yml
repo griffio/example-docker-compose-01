@@ -1,0 +1,15 @@
+app:
+  extends:
+    file: docker-compose-base.yml
+    service: jvm
+  ports:
+    - "8080:8080"
+    
+nginx:
+  extends:
+    file: docker-compose-base.yml
+    service: nginx
+  ports:
+  - "80:80"
+  links:
+    - app:jvm
