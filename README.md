@@ -13,7 +13,15 @@ Required docker configuration files:
 /docker-compose-devl.yml - Localhost deploy 
 /docker-compose-prod.yml - Cloud provider deploy 
 /nginx/DockerFile 
-/spring-boot/DockerFile 
+/application/build/docker/DockerFile 
+~~~
+
+Docker file plugin for gradle build
+
+application/build.gradle
+
+~~~
+./gradlew createDockerFile
 ~~~
 
 ---
