@@ -41,7 +41,7 @@ task wrapper(type: Wrapper) {
 
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 
-task createDockerfile(type: Dockerfile) {
+task createDockerfile(type: Dockerfile, dependsOn: build) {
     destFile = project.file("build/docker/Dockerfile")
 
     from "azul/zulu-openjdk-centos:8"
@@ -50,4 +50,10 @@ task createDockerfile(type: Dockerfile) {
     addFile "${jar.archivePath}", "main.jar"
     entryPoint { ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/main.jar"]}
     volume "/tmp"
+    doFirst {
+     copy {
+       from jar
+       into project.file("build/docker")
+     }
+    }
 }

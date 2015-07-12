@@ -1,16 +1,16 @@
-local-application:
+localapplication:
   extends:
     file: docker-compose-base.yml
     service: application
   ports:
     - "8080:8080"
     
-local-nginx:
+localnginx:
   extends:
     file: docker-compose-base.yml
     service: nginx
   ports:
   - "80:80"
   links:
-    - local-application:application
+    - localapplication:application
     
