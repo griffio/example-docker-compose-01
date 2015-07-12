@@ -47,7 +47,7 @@ task createDockerfile(type: Dockerfile, dependsOn: build) {
     from "azul/zulu-openjdk-centos:8"
     maintainer "griffio@users.noreply.github.com"
     runCommand "bash -c 'touch /main.jar'"
-    addFile "${jar.archivePath}", "main.jar"
+    addFile "${jar.archiveName}", "main.jar"
     entryPoint { ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/main.jar"]}
     volume "/tmp"
     doFirst {
