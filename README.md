@@ -16,7 +16,8 @@ Required docker configuration files:
 /application/build/docker/DockerFile 
 ~~~
 
-Docker file plugin for gradle build
+Docker file plugin for gradle build - the jar file is copied to DockerFile location.
+Local files can only be added to container from Docker build context location.
 
 application/build.gradle
 
