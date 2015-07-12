@@ -53,6 +53,3 @@ com_crashlytics_export_strings.xml
 ### Gradle ###
 .gradle
 build/
-
-build/docker
-
