@@ -1,3 +1,4 @@
+#local environment 8080 is available outside container
 localapplication:
   extends:
     file: docker-compose-base.yml

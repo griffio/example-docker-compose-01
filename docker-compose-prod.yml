@@ -1,15 +1,17 @@
-app:
+#Production environment is port 80 (8080 is only exposed for container linking)
+
+prodapplication:
   extends:
     file: docker-compose-base.yml
-    service: jvm
-  ports:
+    service: application
+  expose:
     - "8080:8080"
-    
-nginx:
+   
+prodnginx:
   extends:
     file: docker-compose-base.yml
     service: nginx
   ports:
   - "80:80"
   links:
-    - app:jvm
+    - prodapplication: application
