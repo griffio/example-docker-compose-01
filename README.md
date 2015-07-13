@@ -32,5 +32,19 @@ docker-compose.yml is the default filename when --file is not specified.
 
 ~~~
 docker-compose --file docker-compose-devl.yml build
-docker-compose --file docker-compose-devl.yml up
+docker-compose --file docker-compose-devl.yml up      # -d can be appended for detached process
+~~~
+
+### Production environment
+
+docker-machine create a docker host on a vm, openstack provider etc
+
+~~~
+docker-machine create --driver yourprovider springboot
+~~~
+
+2 mins later...
+
+~~~
+docker-machine env springboot
 ~~~
