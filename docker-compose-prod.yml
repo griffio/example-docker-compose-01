@@ -1,5 +1,4 @@
-#Production environment is port 80 (8080 is only exposed for container linking)
-
+#production environment is port 80 (8080 is only exposed for container linking)
 prodapplication:
   extends:
     file: docker-compose-base.yml
@@ -14,4 +13,4 @@ prodnginx:
   ports:
   - "80:80"
   links:
-    - prodapplication: application
+    - prodapplication:application
