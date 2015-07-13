@@ -47,4 +47,5 @@ docker-machine create --driver yourprovider springboot
 
 ~~~
 docker-machine env springboot
+docker-compose --file docker-compose-prod.yml up -d
 ~~~
