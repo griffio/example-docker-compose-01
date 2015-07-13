@@ -16,9 +16,9 @@ Required docker configuration files:
 /application/build/docker/DockerFile 
 ~~~
 
-Docker Gradle plugin task [com.bmuschko.gradle.docker.tasks.image.Dockerfile] generates a DockerFile.
-The build jar is copied to DockerFile context location.
-Local files can only be added to container from Docker build context location.
+* Docker Gradle plugin task [com.bmuschko.gradle.docker.tasks.image.Dockerfile] generates a DockerFile.
+* The build jar is copied to DockerFile context location.
+ * Local files can only be added to container from Docker build context location.
 
 application/build.gradle
 
