@@ -37,7 +37,7 @@ docker-compose --file docker-compose-devl.yml up      # -d can be appended for d
 
 ### Production environment
 
-docker-machine create a docker host on a vm, openstack provider etc
+docker-machine create a docker host on a vm, openstack provider, carina etc
 
 ~~~
 docker-machine create --driver yourprovider springboot
@@ -47,5 +47,25 @@ docker-machine create --driver yourprovider springboot
 
 ~~~
 docker-machine env springboot
+docker-compose --file docker-compose-prod.yml up -d
+~~~
+
+
+### Carina
+
+Using Carina - https://app.getcarina.com/app/signup
+~~~
+export CARINA_USERNAME=""
+
+export CARINA_APIKEY=""
+
+carina create cluster001 --wait --nodes=1
+
+carina credentials cluster001
+
+eval $(carina env cluster001)
+
+env | grep DOCKER
+
 docker-compose --file docker-compose-prod.yml up -d
 ~~~
