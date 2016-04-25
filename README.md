@@ -50,14 +50,14 @@ docker-machine env springboot
 docker-compose --file docker-compose-prod.yml up -d
 ~~~
 
-
 ### Carina
 
 Using Carina - https://app.getcarina.com/app/signup
-~~~
-export CARINA_USERNAME=""
 
-export CARINA_APIKEY=""
+~~~
+export CARINA_USERNAME="username@example.com"
+
+export CARINA_APIKEY="abc..."
 
 carina create cluster001 --wait --nodes=1
 
