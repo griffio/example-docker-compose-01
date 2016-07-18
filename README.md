@@ -15,15 +15,19 @@ Required docker configuration files:
 /docker-compose-base.yml - Shared config that can be extended 
 /docker-compose-devl.yml - Localhost deploy 
 /docker-compose-prod.yml - Cloud provider deploy 
-/nginx/DockerFile 
-/application/build/docker/DockerFile 
+/nginx/DockerFile - static file
+/application/build/docker/DockerFile - generated docker file 
 ~~~
 
 * Docker Gradle plugin task [com.bmuschko.gradle.docker.tasks.image.Dockerfile](https://github.com/bmuschko/gradle-docker-plugin) generates a DockerFile.
 * The build jar is copied to DockerFile context location.
  * Local files can only be added to container from Docker build context location.
 
-application/build.gradle
+~~~
+cd application
+~~~
+
+Generates java docker file 
 
 ~~~
 ./gradlew createDockerFile
