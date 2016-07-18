@@ -1,10 +1,13 @@
 # docker-compose-01
 
-Example for Nginx/Java with Spring Boot 
+Example docker containers composed of Nginx and Spring Boot Java application 
+
+[application](/tree/master/application)
+[nginx](/tree/master/nginx)
 
 [docker-compose](https://docs.docker.com/compose/)
 
-Launch two containers - for nginx, JVM; that can be configured for local and production use.
+Launches two containers - for nginx, JVM; that can be configured for local and production use.
 
 Required docker configuration files:
 
@@ -16,7 +19,7 @@ Required docker configuration files:
 /application/build/docker/DockerFile 
 ~~~
 
-* Docker Gradle plugin task [com.bmuschko.gradle.docker.tasks.image.Dockerfile] generates a DockerFile.
+* Docker Gradle plugin task [com.bmuschko.gradle.docker.tasks.image.Dockerfile](https://github.com/bmuschko/gradle-docker-plugin) generates a DockerFile.
 * The build jar is copied to DockerFile context location.
  * Local files can only be added to container from Docker build context location.
 
