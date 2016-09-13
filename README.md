@@ -1,4 +1,4 @@
-# docker-compose-01
+# example-docker-compose-01
 
 Example docker containers composed of Nginx and Spring Boot Java application 
 
